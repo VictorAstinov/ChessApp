@@ -139,11 +139,11 @@ static char* make_move(struct chess_game *cg, char color) {
     str = NULL;
   } */
 
-  bool success = cg->cb->board[old_s.rank][old_s.file]->valid_move(cg->cb, old_s, new_s);
-  if (!success) {
+  //bool success = cg->cb->board[old_s.rank][old_s.file]->valid_move(cg->cb, old_s, new_s);
+  /*if (!success) {
     free(str);
     str = NULL;
-  }
+  }*/
   return str;
 }
 

@@ -7,9 +7,10 @@
 struct chess_board;
 
 struct square {
-  int rank;
-  int file;
+  char rank;
+  char file;
 };
+
 
 struct chess_piece {
   char piece;
@@ -17,7 +18,9 @@ struct chess_piece {
   struct square square;
   char color;
   bool moved;
-  bool (*valid_move)(struct chess_board*, struct square, struct square);
+  struct square *valid_moves;
+  char valid_len;
+  char valid_max_len;
 };
 
 struct chess_board {
@@ -25,9 +28,7 @@ struct chess_board {
   struct chess_piece **white_active;
   struct chess_piece **black_active;
   int w_len;
-  int w_max_len;
   int b_len;
-  int b_max_len;
 };
 
 struct chess_board *create_board(void);
